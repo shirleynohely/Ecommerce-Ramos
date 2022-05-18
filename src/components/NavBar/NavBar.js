@@ -25,11 +25,7 @@ const NavBar = () =>{
               </a>
             </li>
           </ul>
-          <nav class="navbar navbar-light bg-light">
-            <div class="container">
-              <img src="./images/cart.svg" alt="cart" width="28" height="22" />
-            </div>
-          </nav>
+        
         </div>
       </nav>
     );
