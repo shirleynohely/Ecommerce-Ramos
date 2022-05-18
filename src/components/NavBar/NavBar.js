@@ -1,9 +1,10 @@
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () =>{
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
             <img src="./images/logo-alsedo-lorenzo-e-hijos.png" alt="Alsedo Lorenzo e Hijos" height="60" />
@@ -25,9 +26,10 @@ const NavBar = () =>{
               </a>
             </li>
           </ul>
-        
+          <CartWidget/>
         </div>
       </nav>
+     
     );
 }
 export default NavBar
