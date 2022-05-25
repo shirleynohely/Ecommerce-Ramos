@@ -23,7 +23,7 @@ const decrement = ()=>{
         <div class="input-group-btn">
             <button type="button" class="btn btn-light" onClick={decrement}>-</button>
         </div>
-        <h3>{value}</h3>
+        <h4>{value}</h4>
         <div class="input-group-btn">
             
             <button type="button" class="btn btn-light" onClick={increment}>+</button>
