@@ -1,3 +1,3 @@
 # Ecommerce Alsedo Lorenzo e Hijos 
 
-Tecnologías: ´HTML´, ´CSS´, ´BOOTSTRAP´, ´REACT JS´
+Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
