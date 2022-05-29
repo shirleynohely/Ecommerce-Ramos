@@ -5,7 +5,7 @@ Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 ## Para ejecutar el proyecto, realizar los siguientes pasos:
 
 - Clonar el repositorio de GitHub </br>
-  ```git clone https://github.com/shirleynohely/Ecommerce-Ramos.github.io.git```
+  ```git clone https://github.com/shirleynohely/Ecommerce-Ramos```
   
 - Ir al directorio </br>
   ```cd Ecommerce-Ramos```
