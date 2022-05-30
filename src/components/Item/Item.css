@@ -1,6 +1,16 @@
+p{
+    margin-bottom: 0;
+}
 .template-card{
     display: flex;
     width: 40%;
     text-align: center;
     margin-left: 25rem;
+}
+.card-body1{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.btn-infor{
+    padding-bottom: 1.5rem;
 }

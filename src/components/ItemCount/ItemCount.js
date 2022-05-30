@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './ItemCount.css'
 
 const ItemCount = ({initial, stock, onAdd }) =>{
 
@@ -23,7 +24,7 @@ const decrement = ()=>{
         <div class="input-group-btn">
             <button type="button" class="btn btn-light" onClick={decrement}>-</button>
         </div>
-        <h4>{value}</h4>
+        <span>{value}</span>
         <div class="input-group-btn">
             
             <button type="button" class="btn btn-light" onClick={increment}>+</button>
