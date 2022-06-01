@@ -15,3 +15,5 @@ Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 
 - Ejecutar el proyecto</br>
   ```npm start```
+  
+  ![Casa Lorenzo - Google Chrome 2022-06-01 19-43-33](https://user-images.githubusercontent.com/62706631/171514573-dd0f9eab-c105-4302-bb01-01d6dd6a7f0e.gif)
