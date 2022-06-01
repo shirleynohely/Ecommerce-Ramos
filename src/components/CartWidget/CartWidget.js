@@ -4,7 +4,7 @@ const CartWidget = () =>{
     return(
         <nav class="navbar navbar-light bg-light">
         <div class="container">
-          <img src="./images/cart.svg" alt="cart-widget"/><span>1</span>
+          <img src="/images/cart.svg" alt="cart-widget"/><span>1</span>
         </div>
       </nav>
     );

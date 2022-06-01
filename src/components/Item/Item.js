@@ -9,7 +9,7 @@ return (
         <img src={pictureUrl} class="card-img-top" alt="" />
         <div class="card-body1">
             <h5>{title}</h5>
-            <p>$<span>{price}</span></p>
+            <p>${price}</p>
         </div>
         
         <div class="btn-infor">

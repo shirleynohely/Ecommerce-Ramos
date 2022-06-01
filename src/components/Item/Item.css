@@ -3,13 +3,16 @@ p{
 }
 .template-card{
     display: flex;
-    width: 40%;
+    flex-wrap: wrap;
     text-align: center;
-    margin-left: 25rem;
+    margin-left: 5rem;
+    padding-top: 2rem;
+    
 }
 .card-body1{
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    
 }
 .btn-infor{
     padding-bottom: 1.5rem;
