@@ -5,35 +5,33 @@ import { getProducts } from "../utils/asyncmock";
 import { getProductsByCategory } from "../utils/asyncmock";
 import { useParams } from "react-router-dom";
 
-const ItemListContainer = ({greeting}) =>{
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState([true]);
 
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState([true])
+  const { categoryId } = useParams();
 
-    const {categoryId} = useParams()
-        
-    useEffect(()=> { 
-        if(!categoryId){
-            getProducts().then (res =>{
-                setProducts(res);
-                setLoading(false);
-        }) 
+  useEffect(() => {
+    if (!categoryId) {
+      getProducts().then((res) => {
+        setProducts(res);
+        setLoading(false);
+      });
     } else {
-        getProductsByCategory(categoryId).then(res => {
-            setProducts(res);
-            setLoading(false);
-        })
+      getProductsByCategory(categoryId).then((res) => {
+        setProducts(res);
+        setLoading(false);
+      });
     }
-    }, [categoryId])
-    
-return (
-    <><h1 class="display-1">{greeting}</h1>
-    <ItemList products={products} />
-    {loading && <Loader />}    
+  }, [categoryId]);
+
+  return (
+    <>
+      <h1 class="display-1">{greeting}</h1>
+      <ItemList products={products} />
+      {loading && <Loader />}
     </>
-    )
+  );
+};
 
-}
-
-
-export default ItemListContainer
+export default ItemListContainer;
