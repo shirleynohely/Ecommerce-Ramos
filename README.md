@@ -1,6 +1,6 @@
 # Ecommerce Alsedo Lorenzo e Hijos 
 
-Proyecto de Ecommerce desarrollado para la empresa Alsedo Lorenzo e Hijos, distribuidora de materias primas para panadería.
+Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>, distribuidora de materias primas para panadería.
 
 Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 
