@@ -1,5 +1,7 @@
 # Ecommerce Alsedo Lorenzo e Hijos 
 
+Proyecto de Ecommerce desarrollado para la empresa Alsedo Lorenzo e Hijos, distribuidora de materias primas para panadería.
+
 Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 
 ## Para ejecutar el proyecto, realizar los siguientes pasos:
@@ -15,5 +17,5 @@ Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 
 - Ejecutar el proyecto</br>
   ```npm start```
-  
-  
+
+![Alseo Lorenzo e Hijos](https://user-images.githubusercontent.com/62706631/171514727-3a60f523-6535-49aa-b310-736b9fec0a42.gif)
