@@ -19,8 +19,12 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-      <ItemDetail {...product} />
-      {loading && <Loader />}
+    <div>
+     {loading && <Loader />}
+     </div>
+     <div>
+    <ItemDetail {...product} />
+    </div>
     </>
   );
 };

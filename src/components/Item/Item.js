@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 const Item = ({id, title, price, pictureUrl}) =>{
 
 return (
-    <div class="card">
-        <img src={pictureUrl} class="card-img-top" alt="" />
-        <div class="card-body1">
+    <div className="card">
+        <img src={pictureUrl} className="card-img-top" alt="" />
+        <div className="card-body1">
             <h5>{title}</h5>
             <p>${price}</p>
         </div>
         
-        <div class="btn-infor">
-        <Link type="button" class="btn btn-outline-dark" to={`/detail/${id}`}>Ver detalle</Link>
+        <div className="btn-infor">
+        <Link type="button" className="btn btn-outline-dark" to={`/detail/${id}`}>Ver detalle</Link>
         </div>
     </div>   
 

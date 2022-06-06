@@ -20,16 +20,16 @@ const decrement = ()=>{
 }
 
     return (
-    <div class="input-group d-flex justify-content-center">
-        <div class="input-group-btn">
-            <button type="button" class="btn btn-light" onClick={decrement}>-</button>
+    <div className="input-group d-flex justify-content-center">
+        <div className="input-group-btn">
+            <button type="button" className="btn btn-light" onClick={decrement}>-</button>
         </div>
         <span>{value}</span>
-        <div class="input-group-btn">
+        <div className="input-group-btn">
             
-            <button type="button" class="btn btn-light" onClick={increment}>+</button>
+            <button type="button" className="btn btn-light" onClick={increment}>+</button>
         </div>
-        <div class="input-group-btn">
+        <div className="input-group-btn">
         <button className="btn btn-light bg-gradient" onClick={() => onAdd(value)}>Agregar al carrito </button>
         </div>
     </div>
