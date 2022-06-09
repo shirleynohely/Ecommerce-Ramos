@@ -39,7 +39,7 @@ const ItemDetail = ({
 
               {!quantity ? (
                 <div class="item-count">
-                  <ItemCount initial={getProduct(id)?.quantity} stock={stock} onAdd={onAdd} />
+                  <ItemCount initial={getProduct(id)} stock={stock} onAdd={onAdd} />
                 </div>
               ) : ( 
                 <div className="btn-back">
