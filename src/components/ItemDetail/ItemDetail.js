@@ -1,9 +1,11 @@
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext} from "react";
+import { CartContext}  from "../../Context/CartContext";
 
 const ItemDetail = ({
+  id,
   pictureUrl,
   title,
   price,
@@ -12,10 +14,13 @@ const ItemDetail = ({
   category,
 }) => {
   const [quantity, setQuantity] = useState(0);
+  
+  const { addItem, getProduct } = useContext(CartContext);
 
-  const onAdd = (initial) => {
-    setQuantity(initial);
-    console.log("se agregó al carrito", initial);
+   const onAdd = (quantity) => {
+    console.log("se agregó al carrito", quantity);
+    setQuantity(quantity);
+    addItem({ id, title, price, quantity })
   };
   return (
     <>
@@ -34,7 +39,7 @@ const ItemDetail = ({
 
               {!quantity ? (
                 <div class="item-count">
-                  <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+                  <ItemCount initial={getProduct(id)} stock={stock} onAdd={onAdd} />
                 </div>
               ) : ( 
                 <div className="btn-back">
