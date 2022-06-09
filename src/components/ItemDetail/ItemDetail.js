@@ -2,7 +2,7 @@ import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { useState, useContext} from "react";
-import { CartContext}  from "../../Context/CartContext";
+import CartContext from "../../Context/CartContext";
 
 const ItemDetail = ({
   id,
@@ -39,7 +39,7 @@ const ItemDetail = ({
 
               {!quantity ? (
                 <div class="item-count">
-                  <ItemCount initial={getProduct(id)} stock={stock} onAdd={onAdd} />
+                  <ItemCount initial={getProduct(id)?.quantity} stock={stock} onAdd={onAdd} />
                 </div>
               ) : ( 
                 <div className="btn-back">
