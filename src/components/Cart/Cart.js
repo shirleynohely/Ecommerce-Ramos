@@ -5,42 +5,30 @@ const Cart = () => {
   const { cart, removeItem, removeAll } = useContext(CartContext);
 
   return (
-    <div>
-        <h1>Carrito de compras</h1>
+    <>
         <div>
-                {cart.map(prod => {
-                    return(
-                        <><>
-                            <div className="container">
-                                <div className="row mt-3 tabla justify-content-center text-center">
-                                    <div className="col-lg-3 col-sm-2"></div>
-                                    <h5 className="col-lg-4 col-sm-2">Producto</h5>
-                                    <h5 className="col-lg-1 col-sm-2">Precio</h5>
-                                    <h5 className="col-lg-1 col-sm-2">Cantidad</h5>
-                                    <h5 className="col-lg-2 col-sm-2">Subtotal</h5>
-                                    <div className="col-lg-1 col-sm-2"></div>
+            {cart.length > 0 && (
+                    <div>
+                        {cart.map(prod => (
+                                <div key={prod.id}>
+                                <div><img src={prod.pictureUrl} alt=" "/></div>
+                                <div>{prod.title}</div>
+                                <div>{prod.quantity}</div>
+                                <div>{prod.price}</div>
+                                <div>{prod.quantity * prod.price}</div>
+                                <button onClick={() => removeItem(prod.id)} className="btn btn-outline-danger">Eliminar</button>
                                 </div>
-                                <hr></hr>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <tr>
-                                            <td key={prod.id}></td>
-                                            <td>{prod.title}</td>
-                                            <td>{prod.price}</td>
-                                            <td>{prod.quantity}</td>
-                                            <td>${prod.price * prod.quantity}</td>
-                                            <button onClick={() => removeItem(prod.id)} className="btn btn-outline-danger">Eliminar</button>
-                                        </tr>
+                        ))}
+                        <div><button onClick={removeAll} className="btn btn-outline-dark">Vaciar Carrito</button></div>
+                    </div>                  
+            )}
+               {cart.length === 0 && (
+          <h1>No hay productos en el carrito</h1>
+            )}
+        </div> 
+    </>
 
-                                    </table>
-                                </div>
-                            </div></><button onClick={removeAll} className="btn btn-outline-dark">Vaciar Carrito</button></>
-                    )}
-                   
-                    ) }
-                
-    </div>
-    
-</div>
-)}
-export default Cart;
+  )
+}
+
+  export default Cart;
