@@ -24,7 +24,7 @@ const products = [
         description: 'chocolate con leche para moldeo',
         price: 1200,
         stock: 10,
-        pictureUrl: '/images/chocolate-con-leche-moldeo.png',
+        pictureUrl: './images/chocolate-con-leche-moldeo.png',
         category: 'decoracion'
     },
     {
