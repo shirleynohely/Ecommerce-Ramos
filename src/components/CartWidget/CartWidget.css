@@ -6,3 +6,7 @@ a{
 a:hover{
     color: black;
 }
+.cart{
+   flex-wrap: nowrap;
+   
+}

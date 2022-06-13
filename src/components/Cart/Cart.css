@@ -1,0 +1,21 @@
+.container{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.cart-img img{
+    width: 90%;
+}
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.row{
+    align-items: center;
+}
+.buyprod{
+    padding-top: 2rem;
+}
+a:hover{
+    color: #d8691b;
+}

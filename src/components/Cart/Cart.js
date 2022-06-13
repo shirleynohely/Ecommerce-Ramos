@@ -1,35 +1,57 @@
 import { useContext } from "react";
 import  CartContext from "../../Context/CartContext";
+import {Link} from "react-router-dom";
+import './Cart.css';
+
 
 const Cart = () => {
-  const { cart, removeItem, removeAll, total } = useContext(CartContext);
+  const { cart, removeItem, removeAll, total, getQuantity} = useContext(CartContext);
 
   return (
     <>
         <div>
             {cart.length > 0 && (
-                    <div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col"></div>
+                            <div className="col title">Producto</div>
+                            <div className="col title">Cantidad</div>
+                            <div className="col title">Precio</div>
+                            <div className="col title">Subtotal</div>
+                            <div className="col"></div>
+                        </div>
+                        <hr></hr>
                         {cart.map(prod => (
-                                <div key={prod.id}>
-                                <div>
+                                <div key={prod.id} className="row">
+                                <div class="col cart-img">
                                 <img src={prod.pictureUrl} alt={prod.title}/>
-                                </div> 
-                                <div>Producto: {prod.title}</div>
-                                <div>Cantidad: {prod.quantity}</div>
-                                <div>Precio: ${prod.price}</div>
-                                <div>Subtotal: ${prod.quantity * prod.price}</div>
-                                <button onClick={() => removeItem(prod.id)} className="btn btn-outline-danger">Eliminar</button>
-                               
                                 </div>
+                                <div className="col"><Link to={`/detail/${prod.id}`}>{prod.title}</Link></div>
+                                <div className="col">{prod.quantity}</div>
+                                <div className="col">${prod.price}</div>
+                                <div className="col">${prod.quantity * prod.price}</div>
+                                <div className="col">
+                                <button onClick={() => removeItem(prod.id)} className="btn btn-outline-danger">Eliminar</button>
+                                </div>
+                                </div>
+                               
                         ))}
-                         <div>Total: ${total()}</div>
-                        <div><button onClick={removeAll} className="btn btn-outline-dark">Vaciar Carrito</button></div>
-                        <div><button className="btn btn-outline-dark">Terminar compra</button></div>
-                        
+                         <hr></hr>
+                         <div className="title">Total ítems: {getQuantity()}</div>
+                         <div className="title col">Total a pagar: ${total()}</div>
+                         <div className="row">
+                        <div className="col"><button onClick={removeAll} className="btn btn-outline-dark">Vaciar Carrito</button></div>
+                        <div className="col"><Link to={`/checkout`} type="button" className="btn btn-outline-dark">Terminar compra</Link></div>
+                        </div>
                     </div>                  
             )}
                {cart.length === 0 && (
-                <h1>No hay productos en el carrito</h1>
+                <div className="container">
+                  <h1>No hay productos en el carrito</h1>
+                <div className="buyprod">
+                  <Link to={`/`} type="button" className="btn btn-outline-dark">Ver productos para comprar</Link>
+                </div>
+                </div>
             )}
         </div> 
     </>
