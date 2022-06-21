@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () =>{
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
+        <div className="contain container-fluid">
           <Link to={`/`} className="navbar-brand">
             <img src="/images/logo-alsedo-lorenzo-e-hijos.png" alt="Alsedo Lorenzo e Hijos" height="60" />
           </Link>
@@ -22,7 +22,7 @@ const NavBar = () =>{
               <li className="nav-item dropdown">
                 <a href="#categorias" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                   Categorías</a>
-                <div class="dropdown-menu">
+                <div className="dropdown-menu">
                         <Link to={`/category/decoracion`} className="dropdown-item">Decoración</Link>
                         <Link to={`/category/ingredientes`} className="dropdown-item">Ingredientes</Link>
           

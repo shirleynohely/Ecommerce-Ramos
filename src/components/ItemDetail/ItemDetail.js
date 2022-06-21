@@ -38,7 +38,7 @@ const ItemDetail = ({
               <p className="card-text">Categoría: {category}</p>
 
               {!quantity ? (
-                <div class="item-count">
+                <div className="item-count">
                   <ItemCount initial={product} stock={stock} onAdd={onAdd} />
                 </div>
               ) : ( 
