@@ -2,6 +2,7 @@ import "./Form.css";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import CartContext from "../../Context/CartContext";
+import Loader from "../Loader/Loader";
 import {
   addDoc,
   collection,
@@ -14,7 +15,7 @@ import {
 import { db } from "../../services/firebase";
 
 const Form = () => {
-  const { register } = useForm();
+  const { register, handleSubmit, formState: errors} = useForm();
 
   const [form, setForm] = useState({
     name: "",
@@ -33,7 +34,7 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
   };
 
@@ -96,46 +97,56 @@ const Form = () => {
   return (
     <>
       {loading ? (
+        <>
         <h5>Su orden se está generando</h5>
+        <Loader />
+        </>
       ) : orderId ? (
         <>
           <h5>La compra ha finalizado correctamente</h5>
           <p>El número de orden de su compra es {orderId}</p>
         </>
       ) : (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-3">
             <label className="form-label">Nombre</label>
             <input
               className="form-control"
               type="text"
               name="name"
-              {...register("name", { required: true })}
+              placeholder="Ingrese nombre"
               onChange={handleChange}
               value={form.name}
+              {...register("name", { required: {value: true, message: "El campo es requerido"} })} 
             />
+            {errors?.name?.message}
           </div>
           <div className="mb-3">
             <label className="form-label">Email</label>
             <input
               className="form-control"
-              type="text"
+              type="email"
               name="email"
-              {...register("email", { required: true })}
+              placeholder="Ingrese email" 
               onChange={handleChange}
               value={form.email}
+              {...register("email", { required: {value: true, message:"El campo es requerido" } })}
             />
+             {errors?.email?.message}
           </div>
           <div className="mb-3">
             <label className="form-label">Teléfono</label>
             <input
               className="form-control"
-              type="text"
+              type="number"
               name="phone"
-              {...register("phone", { required: true })}
+              placeholder="Ingrese teléfono" 
               onChange={handleChange}
               value={form.phone}
+              {...register("phone", { required: {value: true, message:"El campo es requerido" } })}
+              
             />
+            {errors?.phone?.message}
           </div>
           <div className="mb-3">
             <label className="form-label">Dirección</label>
@@ -143,15 +154,18 @@ const Form = () => {
               className="form-control"
               type="text"
               name="address"
-              {...register("address", { required: true })}
+              placeholder="Ingrese dirección" 
               onChange={handleChange}
               value={form.address}
+              {...register("address", { required: {value: true, message:"El campo es requerido" } })}
+              
             />
+             {errors?.address?.message}
           </div>
 
           <div>
             <button
-              type="submit"
+              type="button"
               className="btn btn-outline-dark"
               onClick={() => CreateOrder()}
             >
