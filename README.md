@@ -3,17 +3,10 @@
 
 # Ecommerce Alsedo Lorenzo e Hijos 
 
-App de Ecommerce desarrollada para la empresa Alsedo Lorenzo e Hijos, distribuidora de materias primas para panaderías.
+Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>, distribuidora de materias primas para panadería.
 
 ## Tecnologías:
 `HTML5`, `CSS3`, `BOOTSTRAP`, `REACT JS`, `FIREBASE`
-=======
-# Ecommerce Alsedo Lorenzo e Hijos 
-
-Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>, distribuidora de materias primas para panadería.
-
-Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
-
 
 ## Para ejecutar el proyecto, realizar los siguientes pasos:
 
@@ -31,7 +24,7 @@ Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 
 ## Variables de entorno:
 
-Variables de configuración de Firebase
+Variables de configuración de Firebase.
 
 Ver .env.example
 
