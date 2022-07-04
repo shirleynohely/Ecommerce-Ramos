@@ -1,8 +1,12 @@
 import "./Form.css";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import CartContext from "../../Context/CartContext";
+import CartContext from "../../context/CartContext";
+import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import { ErrorMessage } from "@hookform/error-message";
+
 import {
   addDoc,
   collection,
@@ -13,13 +17,19 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import { db } from "../../services/firebase";
+import toast from "react-hot-toast";
 
 const Form = () => {
-  const { register, handleSubmit, formState: errors} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const [form, setForm] = useState({
     name: "",
     email: "",
+    emailConfirm: "",
     phone: "",
     address: "",
   });
@@ -28,24 +38,23 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
+    e.preventDefault();
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-  };
+  //objeto con información del cliente y su orden de compra
 
-  const CreateOrder = () => {
+  const createOrder = () => {
     setLoading(true);
 
-    const ObjOrder = {
+    const objOrder = {
       form,
       products: cart,
       total: total(),
-      quantity: getQuantity(),
+      items: getQuantity(),
       date: new Date(),
     };
 
@@ -54,6 +63,8 @@ const Form = () => {
     const batch = writeBatch(db);
 
     const outOfStock = [];
+
+    //  Referencia de la colección de productos y órdenes en Firebase
 
     const collectionRef = collection(db, "products");
 
@@ -75,7 +86,7 @@ const Form = () => {
       .then(() => {
         if (outOfStock.length === 0) {
           const collectionRef = collection(db, "orders");
-          return addDoc(collectionRef, ObjOrder);
+          return addDoc(collectionRef, objOrder);
         } else {
           return Promise.reject({ type: "out-of-stock", products: outOfStock });
         }
@@ -84,10 +95,27 @@ const Form = () => {
         batch.commit();
         const orderId = id;
         removeAll();
+        toast.success("La compra se ha realizado correctamente", {
+          style: {
+            borderRadius: "10px",
+            background: "#000000",
+            color: "#fff",
+          },
+        });
         return setOrderId(orderId);
       })
       .catch((err) => {
         console.log(err);
+        toast.error(
+          "No se puede realizar la compra, algunos productos no cuentan con stock",
+          {
+            style: {
+              borderRadius: "10px",
+              background: "#000000",
+              color: "#fff",
+            },
+          }
+        );
       })
       .finally(() => {
         setLoading(false);
@@ -98,83 +126,134 @@ const Form = () => {
     <>
       {loading ? (
         <>
-        <h5>Su orden se está generando</h5>
-        <Loader />
+          <h5>Su orden se está generando</h5>
+          <Loader />
         </>
       ) : orderId ? (
         <>
-          <h5>La compra ha finalizado correctamente</h5>
-          <p>El número de orden de su compra es {orderId}</p>
+          <h5>¡Muchas gracias por su compra!</h5>
+          <p>
+            El número de orden de su compra es:<span>{orderId}</span>
+          </p>
+          <div className="btnInicio">
+            <Link to={`/`} type="button" className="btn btn-outline-dark">
+              Volver al inicio
+            </Link>
+          </div>
         </>
       ) : (
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-3">
-            <label className="form-label">Nombre</label>
-            <input
-              className="form-control"
-              type="text"
-              name="name"
-              placeholder="Ingrese nombre"
-              onChange={handleChange}
-              value={form.name}
-              {...register("name", { required: {value: true, message: "El campo es requerido"} })} 
-            />
-            {errors?.name?.message}
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Email</label>
-            <input
-              className="form-control"
-              type="email"
-              name="email"
-              placeholder="Ingrese email" 
-              onChange={handleChange}
-              value={form.email}
-              {...register("email", { required: {value: true, message:"El campo es requerido" } })}
-            />
-             {errors?.email?.message}
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Teléfono</label>
-            <input
-              className="form-control"
-              type="number"
-              name="phone"
-              placeholder="Ingrese teléfono" 
-              onChange={handleChange}
-              value={form.phone}
-              {...register("phone", { required: {value: true, message:"El campo es requerido" } })}
-              
-            />
-            {errors?.phone?.message}
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Dirección</label>
-            <input
-              className="form-control"
-              type="text"
-              name="address"
-              placeholder="Ingrese dirección" 
-              onChange={handleChange}
-              value={form.address}
-              {...register("address", { required: {value: true, message:"El campo es requerido" } })}
-              
-            />
-             {errors?.address?.message}
-          </div>
+        <>
+          <h5 className="title-confirm">
+            Ingrese sus datos para confirmar la compra
+          </h5>
+          <form
+            className="form"
+            onSubmit={handleSubmit(createOrder)}
+            onChange={handleChange}
+          >
+            <div className="mb-3">
+              <label className="form-label">Nombre</label>
+              <input
+                className="form-control"
+                type="text"
+                name="name"
+                placeholder="Ingrese nombre"
+                value={form.name}
+                {...register("name", { required: "El campo es requerido" })}
+              />
 
-          <div>
-            <button
-              type="button"
-              className="btn btn-outline-dark"
-              onClick={() => CreateOrder()}
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
+              <ErrorMessage
+                errors={errors}
+                name="name"
+                render={({ message }) => <p>{message}</p>}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Email</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                placeholder="Ingrese email"
+                value={form.email}
+                {...register("email", { required: "El campo es requerido" })}
+              />
+              {}
+              <ErrorMessage
+                errors={errors}
+                name="email"
+                render={({ message }) => <p>{message}</p>}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Confirmar email</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                placeholder="Confirmar email"
+                value={form.emailConfirm}
+                {...register("emailConfirm", {
+                  required: "El campo es requerido",
+                })}
+              />
+              {form.emailConfirm !== form.email && (
+                <p>Los emails no coinciden</p>
+              )}
+              <ErrorMessage
+                errors={errors}
+                name="emailConfirm"
+                render={({ message }) => <p>{message}</p>}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Teléfono</label>
+              <input
+                className="form-control"
+                type="number"
+                name="phone"
+                placeholder="Ingrese teléfono"
+                value={form.phone}
+                {...register("phone", { required: "El campo es requerido" })}
+              />
+              <ErrorMessage
+                errors={errors}
+                name="phone"
+                render={({ message }) => <p>{message}</p>}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Dirección</label>
+              <input
+                className="form-control"
+                type="text"
+                name="address"
+                placeholder="Ingrese dirección"
+                value={form.address}
+                {...register("address", { required: "El campo es requerido" })}
+              />
+
+              <ErrorMessage
+                errors={errors}
+                name="address"
+                render={({ message }) => <p>{message}</p>}
+              />
+            </div>
+
+            <div className="btncompra">
+              <button
+                type="submit"
+                className="btn btn-outline-dark"
+                disabled={form.email !== form.emailConfirm || cart.length === 0}
+              >
+                Realizar compra
+              </button>
+            </div>
+          </form>
+        </>
       )}
     </>
   );
 };
+
 export default Form;

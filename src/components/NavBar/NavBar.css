@@ -1,5 +1,10 @@
+
 .navbar-brand{
     padding-left: 2rem;
+}
+.navbar-brand img{
+    height: 60px;
+    width: 100%;
 }
 .cart{
     padding-right: 2rem;

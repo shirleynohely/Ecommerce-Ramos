@@ -8,5 +8,8 @@ a:hover{
 }
 .cart{
    flex-wrap: nowrap;
-   
+}
+.cart img{
+    width: 16px;
+    height: 16px;
 }

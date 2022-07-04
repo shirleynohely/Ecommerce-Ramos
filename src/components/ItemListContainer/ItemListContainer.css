@@ -1,0 +1,21 @@
+
+#carouselExampleDark{
+    margin-top: 5rem;
+}
+
+.carousel-item img{
+    height: 666px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.5rem;
+    border-radius: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.title{
+    padding-top: 2rem;
+    font-size: 1.5rem;
+}
+.description{
+    margin-bottom: 15rem;
+}

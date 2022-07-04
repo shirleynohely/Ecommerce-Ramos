@@ -1,14 +1,18 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore} from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
+
+//Conexión Firebase con Firestore
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD0elhORdwR5hd-V_TwbXa1xDYmR79aabk",
-  authDomain: "ecommerce-aleh.firebaseapp.com",
-  projectId: "ecommerce-aleh",
-  storageBucket: "ecommerce-aleh.appspot.com",
-  messagingSenderId: "453578042199",
-  appId: "1:453578042199:web:15a325e89b070292582c12"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
+
+//Inicializar Firebase
 
 const app = initializeApp(firebaseConfig);
 

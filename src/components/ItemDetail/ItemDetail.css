@@ -1,10 +1,19 @@
-
+.card{
+    padding-top: 3rem;
+}
+.card-title{
+    padding-top: 6rem;
+}
 .card-body{
-    padding-top: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
 }
 .item-count{
     padding-top: 2rem;
 }
 .btn-back{
     padding-top: 2rem;
+}
+.col-md-4{
+    padding-top: 5rem;
 }

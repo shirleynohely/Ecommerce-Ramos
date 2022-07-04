@@ -1,10 +1,10 @@
 import "./Cart.css";
 import { useContext } from "react";
-import CartContext from "../../Context/CartContext";
+import CartContext from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, removeItem, removeAll, total, getQuantity } =
+  const { cart, removeItem, getQuantity, total, removeAll } =
     useContext(CartContext);
 
   return (
@@ -65,7 +65,7 @@ const Cart = () => {
         )}
         {cart.length === 0 && (
           <div className="container">
-            <h1>No hay productos en el carrito</h1>
+            <h1>No tiene productos en el carrito</h1>
             <div className="buyprod">
               <Link to={`/`} type="button" className="btn btn-outline-dark">
                 Ver productos para comprar
