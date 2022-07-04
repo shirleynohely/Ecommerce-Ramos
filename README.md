@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/62706631/177066895-3b8140f2-2414-45bd-950d-b6ccb9829ba5.png)
+
 # Ecommerce Alsedo Lorenzo e Hijos 
 
 App de Ecommerce desarrollada para la empresa Alsedo Lorenzo e Hijos, distribuidora de materias primas para panaderías.
@@ -33,7 +35,7 @@ Ver .env.example
 
 ## Componentes: </br>
 <ol>
-<li>Navbar</li>: 
+<li>Navbar</li>
 <li>CartWidget</li>
 <li>Item</li>
 <li>ItemList</li>
