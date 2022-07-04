@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ![image](https://user-images.githubusercontent.com/62706631/177066895-3b8140f2-2414-45bd-950d-b6ccb9829ba5.png)
 
 # Ecommerce Alsedo Lorenzo e Hijos 
@@ -13,7 +13,7 @@ App de Ecommerce desarrollada para la empresa Alsedo Lorenzo e Hijos, distribuid
 Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>, distribuidora de materias primas para panadería.
 
 Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
->>>>>>> a15b2c30c815cc0f29d6ec14e463101d40dbfe24
+
 
 ## Para ejecutar el proyecto, realizar los siguientes pasos:
 
@@ -29,7 +29,6 @@ Tecnologías: `HTML`, `CSS`, `BOOTSTRAP`, `REACT JS`
 - Ejecutar el proyecto</br>
   ```npm start```
 
-<<<<<<< HEAD
 ## Variables de entorno:
 
 Variables de configuración de Firebase
@@ -70,6 +69,4 @@ Ver .env.example
 
 ## Firebase | Firestore: </br>
 
-=======
->>>>>>> a15b2c30c815cc0f29d6ec14e463101d40dbfe24
 ![Alseo Lorenzo e Hijos](https://user-images.githubusercontent.com/62706631/171514727-3a60f523-6535-49aa-b310-736b9fec0a42.gif)
