@@ -9,7 +9,11 @@ Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>
 [Vercel](https://ecommerce-ramos.vercel.app/)
 
 ## Tecnologías:
-`HTML5`, `CSS3`, `BOOTSTRAP`, `REACT JS`, `FIREBASE`
+`HTML5`, `CSS3`, `BOOTSTRAP`, `REACT JS`, `FIREBASE`, `VERCEL`
+
+## Construida usando:
+
+- [create-react-app](https://create-react-app.dev/)
 
 ## Para ejecutar el proyecto, realizar los siguientes pasos:
 
@@ -29,9 +33,7 @@ Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>
 
 Ver variables de configuración de Firebase en: [.env.example](https://github.com/shirleynohely/Ecommerce-Ramos/blob/main/.env.example)
 
-## Construido usando:
 
-- [create-react-app](https://create-react-app.dev/)
 
 ## Componentes: </br>
 
