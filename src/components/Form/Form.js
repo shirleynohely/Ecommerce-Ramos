@@ -33,7 +33,7 @@ const Form = () => {
     phone: "",
     address: "",
   });
-  const { cart, total, getQuantity, removeAll } = useContext(CartContext);
+  const { cart, getQuantity, total,removeAll } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -53,8 +53,8 @@ const Form = () => {
     const objOrder = {
       form,
       products: cart,
+      quantity: getQuantity(),
       total: total(),
-      items: getQuantity(),
       date: new Date(),
     };
 

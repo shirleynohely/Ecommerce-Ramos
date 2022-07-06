@@ -8,7 +8,9 @@
     justify-content: center;
     background: black;
     color: white;
-    margin-top: 20rem;
+    margin-top: 48rem;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer p {

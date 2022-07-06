@@ -5,7 +5,6 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../services/firebase/products";
 
-
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState([true]);
@@ -81,8 +80,15 @@ const ItemListContainer = ({ greeting }) => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <ItemList products={products} />
-      {loading && <Loader />}
+      {!loading ? (
+        products.length > 0 ? (
+          <ItemList products={products} />
+        ) : (
+          <h4>No hay productos en el catálogo</h4>
+        )
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };
