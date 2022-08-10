@@ -1,6 +1,6 @@
-![Ecommerce - Alsedo Lorenzo e Hijos](https://user-images.githubusercontent.com/62706631/177229400-0785ba0a-1b92-4559-90ce-10d9888ba56b.gif)
+# Ecommerce Alsedo Lorenzo e Hijos
 
-# Ecommerce Alsedo Lorenzo e Hijos 
+![Ecommerce - Alsedo Lorenzo e Hijos](https://user-images.githubusercontent.com/62706631/177229400-0785ba0a-1b92-4559-90ce-10d9888ba56b.gif)
 
 Proyecto de Ecommerce desarrollado para la empresa <b>Alsedo Lorenzo e Hijos</b>, distribuidora de materias primas para panadería.
 
