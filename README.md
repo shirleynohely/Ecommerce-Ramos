@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/62706631/177066895-3b8140f2-2414-45bd-950d-b6ccb9829ba5.png)
+![Ecommerce - Alsedo Lorenzo e Hijos](https://user-images.githubusercontent.com/62706631/177229400-0785ba0a-1b92-4559-90ce-10d9888ba56b.gif)
 
 # Ecommerce Alsedo Lorenzo e Hijos 
 
@@ -66,6 +66,3 @@ Se implementaron 3 colecciones en Firestore (base de datos de documentos NoSQL d
 - **Products**: Colección de productos con los siguientes datos: id, generado automáticamente, url de imagen (string), descripción (string), precio (number), stock (number) y categoría (string).
 - **Orders**: Colección de órdenes generadas que incluyen los datos del comprador y de los productos con las descripciones, cantidad, precio y monto total de la compra.
 - **Categories**: Colección de categorías de productos para consultar en el menú (Navbar), con id de categoría (string) y descripción (string).
-
-## Gif
-![Ecommerce - Alsedo Lorenzo e Hijos](https://user-images.githubusercontent.com/62706631/177229400-0785ba0a-1b92-4559-90ce-10d9888ba56b.gif)
